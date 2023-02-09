@@ -70,7 +70,6 @@ export class AppController {
     });
   
     xml1Elements.forEach((xml1Element) => {
-      
       const xml2Element = xml2Elements.find(
         (element) => element.value[0] === xml1Element.value[0]
       );
