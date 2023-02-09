@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <element>
+    <value>Value1</value>
+    <occurrence>1</occurrence>
+  </element>
+  <element>
+    <value>Value2</value>
+    <occurrence>1</occurrence>
+  </element>
+  <element>
+    <value>Value3</value>
+    <occurrence>1</occurrence>
+  </element>
+  <element>
+    <value>Value4</value>
+    <occurrence>1</occurrence>
+  </element>
+  <element>
+    <value>Value5</value>
+    <occurrence>1</occurrence>
+  </element>
+  <element>
+    <value>Value50</value>
+    <occurrence>10</occurrence>
+  </element>
+</root>
