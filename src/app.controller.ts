@@ -8,8 +8,8 @@ import {
 import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 import { createWriteStream, readFileSync } from 'fs';
 import { join } from 'path';
-import fs from 'fs';
-import xml2js from 'xml2js';
+var fs=require('fs');
+var  xml2js =require('xml2js')
 
 @Controller()
 export class AppController {
@@ -34,11 +34,10 @@ export class AppController {
   @Post()
   @UseInterceptors(FilesInterceptor('files'))
   async compareXML(@UploadedFiles() files, @Res() res) {
-    const xml1 = readFileSync(files[0].originalname, 'utf-8');
-    const xml2 = readFileSync(files[1].originalname, 'utf-8');
     
-    const obj1 = await this.convertXMLtoJS('XML_1.xml');
-    const obj2 = await this.convertXMLtoJS('XML_2.xml');
+    const obj1 = await this.convertXMLtoJS(files[0].originalname);
+  
+    const obj2 = await this.convertXMLtoJS(files[1].originalname);
 
     let result = await this.compareXML2(obj1, obj2);
 
@@ -52,11 +51,11 @@ export class AppController {
   }
 
   async compareXML2(xml1, xml2) {
-    console.log(xml1.root.element[0]);
+   // console.log(xml1.root.element[0]);
     
     const xml1Elements = xml1.root.element;
     const xml2Elements = xml2.root.element;
-  
+    
     xml2Elements.forEach((xml2Element) => {
       
       const xml1Element = xml1Elements.find(
